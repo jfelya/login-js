@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="styles/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Login</title>
+</head>
+
+<body id="body">
+    <div class="container-fluid" id="main">
+        <h2>Welcome to Yucuta Corporation</h2><br><br>
+
+        <p>
+            Are you new? You can register right here!
+        </p>
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6">
+                <!-- TYPE BUTTON IS TO AVOID SUBMIT PROBLEMS WITH BROWSERS BECAUSE EVERY BUTTON WITHOUT "TYPE" IS A SUBMIT TYPE BY DEFAULT -->
+                <button type="button" class="btn btn-primary btn-block" id="registerBtn">Register</button>
+            </div>
+            <div class="col-sm-3"></div>
+        </div><br>
+
+        <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-4">
+                <p>
+                    You already have an account?
+                </p>
+            </div>
+            <div class="col-sm-4">
+                <!-- TYPE BUTTON IS TO AVOID SUBMIT PROBLEMS WITH BROWSERS BECAUSE EVERY BUTTON WITHOUT "TYPE" IS A SUBMIT TYPE BY DEFAULT -->
+                <button type="button" class="btn btn-secondary btn-block" id="loginBtn">Log In</button>
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+    </div>
+
+    <div class="container-fluid" id="registerForm">
+        <h2>Register User</h2><br><br>
+
+        <form action="test.html" id="registerFormTrue" onsubmit="return registerProcess();">
+            <div class="form-group row">
+                <div class="col-sm-2"></div>
+                <label for="username" class="col-sm-4 col-form-label">
+                    Username
+                </label>
+                <div class="col-sm-4">
+                    <input class="form-control" type="text" id="username" required>
+                </div>
+                <div class="col-sm-2"></div>
+            </div>
+            <div class="row advice">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-10">
+                    Your username must be between 4 and 12 characters
+                </div>
+            </div><br>
+
+            <div class="form-group row">
+                <div class="col-sm-2"></div>
+                <label for="email" class="col-sm-4 col-form-label">
+                    Email
+                </label>
+                <div class="col-sm-4">
+                    <input class="form-control" type="email" id="email" required>
+                </div>
+                <div class="col-sm-2"></div>
+            </div><br>
+
+            <div class="form-group row">
+                <div class="col-sm-2"></div>
+                <label for="age" class="col-sm-4 col-form-label">
+                    Age
+                </label>
+                <div class="col-sm-4">
+                    <input class="form-control" type="number" id="age" min="1" max="112" required>
+                </div>
+                <div class="col-sm-2"></div>
+            </div>
+            <div class="row advice">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-10">
+                    You must be at least 16 years old
+                </div>
+            </div><br>
+
+            <div class="form-group row">
+                <div class="col-sm-2"></div>
+                <label for="password" class="col-sm-4 col-form-label">
+                    Password
+                </label>
+                <div class="col-sm-4">
+                    <input class="form-control" type="password" id="password" required>
+                </div>
+                <div class="col-sm-2"></div>
+            </div>
+            <div class="row advice">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-10">
+                    Your password must be between 8 and 16 characters
+                </div>
+            </div><br>
+
+            <div class="form-group row">
+                <div class="col-sm-2"></div>
+                <label for="username" class="col-sm-4 col-form-label">
+                    Confirm Password
+                </label>
+                <div class="col-sm-4">
+                    <input class="form-control" type="password" id="password2" required>
+                </div>
+                <div class="col-sm-2"></div>
+            </div><br>
+
+            <div class="row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-4">
+                    <input type="submit" class="btn btn-primary btn-block" id="registerSubmitBtn" value="Register">
+                </div>
+                <div class="col-sm-4">
+                    <!-- TYPE BUTTON IS TO AVOID SUBMIT PROBLEMS WITH BROWSERS BECAUSE EVERY BUTTON WITHOUT "TYPE" IS A SUBMIT TYPE BY DEFAULT -->
+                    <button type="button" class="btn btn-secondary btn-block" id="backRegisterBtn">Go back</button>
+                </div>
+                <div class="col-sm-2"></div>
+            </div>
+        </form>
+    </div>
+
+    <div class="container-fluid" id="loginForm">
+        <h2>Login</h2><br>
+
+        <form class="main-form" action="" onsubmit="launchPromise(); return false">
+            <div class="form-group row">
+                <div class="col-sm-2"></div>
+                <label for="usernameLogin" class="col-sm-4 col-form-label">
+                    Username
+                </label>
+                <div class="col-sm-4">
+                    <input class="form-control" type="text" id="usernameLogin" required>
+                </div>
+                <div class="col-sm-2"></div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-2"></div>
+                <label for="passwordLogin" class="col-sm-4 col-form-label">
+                    Password
+                </label>
+                <div class="col-sm-4">
+                    <input class="form-control" type="password" id="passwordLogin" required>
+                </div>
+                <div class="col-sm-2"></div>
+            </div><br>
+
+            <div class="row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-4">
+                    <input type="submit" class="btn btn-primary btn-block" id="loginSubmitBtn" value="Login">
+                </div>
+                <div class="col-sm-4">
+                    <!-- TYPE BUTTON IS TO AVOID SUBMIT PROBLEMS WITH BROWSERS BECAUSE EVERY BUTTON WITHOUT "TYPE" IS A SUBMIT TYPE BY DEFAULT -->
+                    <button type="button" class="btn btn-secondary btn-block" id="backLoginBtn">Go back</button>
+                </div>
+                <div class="col-sm-2"></div>
+            </div>
+        </form>
+    </div>
+
+    <script src="process/process.js"></script>
+    <script src="process/loginProcess.js"></script>
+    <script src="process/loginProcess2.js"></script>
+
+</body>
+
+</html>
